@@ -24,7 +24,7 @@
 
 1. **Clone the Repository**
     ```
-    git clone https://github.com/yourusername/studyverse.git
+    git clone https://github.com/Ansh-exe7/studyverse.git
     cd studyverse
     ```
 
