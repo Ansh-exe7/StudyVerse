@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyVerse-Dashboard</title>
+    <link rel="stylesheet" href="styledash.css">
+    <link href="https://fonts.cdnfonts.com/css/against-2" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/walkway" rel="stylesheet">
+</head>
+<body>
+    <canvas id="warpCanvas"></canvas>
+    <div class="main-content">
+        <div class="header">
+            <button class="menu-button" aria-label="Menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="Home.html">Study<span style="color: lightpink;">Verse</span></a>
+                </div>
+            </div>
+
+            
+            
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search any grade">
+            </div>
+            
+            <div class="search-icon" onclick="toggleSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>            
+            <div class="profile-icon" onclick="toggleProfile()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+        <nav class="navbar" id="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Grades</a></li>
+                <li><a href="#">PYQ's</a></li>
+                <li><a href="#">Roadmaps</a></li>
+                <li><a href="#">Time Table</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+
+        <main class="main-content">
+            <section class="welcome-section">
+                <h1 class="welcome-title">Welcome back, <span id="username-display">Student</span>!</h1>
+                <p class="welcome-subtitle">Ready to conquer your studies today? Let's make it happen! 🚀</p>
+                
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: #4facfe;">7</div>
+                        <div class="stat-label">Days Streak</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: #43e97b;">12h</div>
+                        <div class="stat-label">Study Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: #f093fb;">85%</div>
+                        <div class="stat-label">Progress</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: #667eea;">24</div>
+                        <div class="stat-label">Tasks Done</div>
+                    </div>
+                </div>
+            </section>
+    
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-icon">📊</div>
+                        Syllabus Progress
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Database Management</span>
+                            <span class="progress-percentage">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Operating Systems</span>
+                            <span class="progress-percentage">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Computer Networks</span>
+                            <span class="progress-percentage">45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card focus-card">
+                    <div class="card-title">
+                        <div class="card-icon">⏱️</div>
+                        Focus Timer
+                    </div>
+                    
+                    <div class="timer-display" id="timerDisplay">25:00</div>
+                    
+                    <button class="focus-btn" id="startBtn" onclick="startPomodoro()">Start Focus Session</button>
+                    <button class="focus-btn" id="pauseBtn" onclick="pausePomodoro()" style="display: none;">Pause</button>
+                    <button class="focus-btn" id="resetBtn" onclick="resetPomodoro()">Reset</button>
+                    
+                    <p id="timerStatus" style="margin-top: 1rem; color: var(--text-secondary);">Ready to focus</p>
+                </div>
+    
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-icon">✅</div>
+                        Today's Tasks
+                    </div>
+                    
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <span class="task-text">Complete OS Unit 3 revision</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <span class="task-text">Solve DBMS practice questions</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <span class="task-text">Review network protocols</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <span class="task-text">Practice coding problems</span>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-icon">📅</div>
+                        Upcoming Exams
+                    </div>
+                    
+                    <div class="exam-item">
+                        <div>
+                            <div class="exam-subject">Operating Systems</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Mid-term exam</div>
+                        </div>
+                        <div class="exam-date">July 15</div>
+                    </div>
+                    
+                    <div class="exam-item">
+                        <div>
+                            <div class="exam-subject">Database Management</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Final exam</div>
+                        </div>
+                        <div class="exam-date">July 22</div>
+                    </div>
+                    
+                    <div class="exam-item">
+                        <div>
+                            <div class="exam-subject">Computer Networks</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Assignment due</div>
+                        </div>
+                        <div class="exam-date">July 28</div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-icon">🚀</div>
+                        Quick Actions
+                    </div>
+                    
+                    <div class="quick-links">
+                        <a href="#" class="quick-link">
+                            <span class="quick-link-icon">📚</span>
+                            <span>Past Papers</span>
+                        </a>
+                        <a href="#" class="quick-link">
+                            <span class="quick-link-icon">🧠</span>
+                            <span>Mind Maps</span>
+                        </a>
+                        <a href="#" class="quick-link">
+                            <span class="quick-link-icon">📋</span>
+                            <span>Study Plan</span>
+                        </a>
+                        <a href="#" class="quick-link">
+                            <span class="quick-link-icon">📈</span>
+                            <span>Statistics</span>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-icon">🎯</div>
+                        Study Goals
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span>Weekly Study Goal</span>
+                            <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-color);">28/40 hrs</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔥</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">You're on fire! Keep up the great work!</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="custom-footer">
+            <div class="footer-grid">
+              <!-- Left Column: Info -->
+              <div class="footer-col">
+                <h2>STUDYVERSE</h2>
+                <p>Your all-in-one exam preparation partner —<br>track, plan, focus, and succeed.</p>
+                <p>Email: <a href="mailto:studyverse@support.com">studyverse@support.com</a></p>
+                <p>&copy; 2025 StudyVerse. All rights reserved.</p>
+              </div>
+          
+              <!-- Center Column: Links -->
+              <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="#">Dashboard</a></li>
+                  <li><a href="#">PYQs</a></li>
+                  <li><a href="#">Mindmaps</a></li>
+                  <li><a href="#">Timetable</a></li>
+                  <li><a href="#">Notifications</a></li>
+                  <li><a href="#">Profile</a></li>
+                </ul>
+              </div>
+          
+              <!-- Right Column: Contact Form -->
+              <div class="footer-col">
+                <h3>Contact Us</h3>
+                <form id="contact-form">
+                  <input type="text" placeholder="Your Name" required />
+                  <input type="email" placeholder="Your Email" required />
+                  <textarea placeholder="Your Message" required></textarea>
+                  <button type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+          </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

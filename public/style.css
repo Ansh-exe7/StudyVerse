@@ -1,0 +1,163 @@
+@import url(https://db.onlinewebfonts.com/c/f1195bbd6aaa8a862f7ab23d4c363f3e?family=SofiaRoughBlackInline);
+@font-face {
+    font-family: "SofiaRoughBlackInline";
+    src: url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.eot");
+    src: url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.svg#SofiaRoughBlackInline")format("svg");
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: black;
+    height: 100%;
+}
+
+#warpCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.overlay-text {
+    font-family: "SofiaRoughBlackInline";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeSlideUp 1.2s ease-out forwards;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.overlay-text h1 {
+    font-size: 3em;
+    white-space: nowrap; 
+    margin: 0;
+}
+
+.overlay-text span {
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.overlay-text p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: white;
+}
+
+button {
+    font-family: "SofiaRoughBlackInline";
+    font-size: 16px;
+    border: 0.1em solid white;
+    color: #ccc;
+    padding: 10px 15px;
+    background: none;
+    text-shadow: 0.5px 0.5px 0 #ccc, -0.5px -0.5px 0 #ccc;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .overlay-text {
+        padding: 15px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+    
+    .overlay-text h1 {
+        font-size: 2.2em;
+        white-space: normal;
+        line-height: 1.1;
+    }
+    
+    .overlay-text p {
+        font-size: 1em;
+        margin-top: 15px;
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 12px 18px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay-text {
+        padding: 10px;
+        width: 95%;
+    }
+    
+    .overlay-text h1 {
+        font-size: 1.8em;
+    }
+    
+    .overlay-text p {
+        font-size: 0.9em;
+        margin-top: 12px;
+    }
+    
+    button {
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .overlay-text h1 {
+        font-size: 1.5em;
+    }
+    
+    .overlay-text p {
+        font-size: 0.8em;
+    }
+    
+    button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .overlay-text {
+        padding: 8px;
+    }
+    
+    .overlay-text h1 {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+    
+    .overlay-text p {
+        font-size: 0.9em;
+        margin-top: 8px;
+    }
+    
+    button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

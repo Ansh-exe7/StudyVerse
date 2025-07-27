@@ -1,0 +1,857 @@
+@import url(https://db.onlinewebfonts.com/c/f1195bbd6aaa8a862f7ab23d4c363f3e?family=SofiaRoughBlackInline);
+@import url('https://fonts.cdnfonts.com/css/walkway');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@font-face {
+    font-family: "SofiaRoughBlackInline";
+    src: url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.eot");
+    src: url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/f1195bbd6aaa8a862f7ab23d4c363f3e.svg#SofiaRoughBlackInline") format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  background: transparent;
+}
+#warpCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+.header {
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  z-index: 99;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
+}
+.logo,
+.logo span {
+  font-family: "SofiaRoughBlackInline";
+  font-size: 38px;
+  color: white;
+}
+.logo a {
+  font-family: "SofiaRoughBlackInline";
+  color: white;
+  text-decoration: none;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.search-container {
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 10px 20px;
+  position: relative;
+}
+.search-bar {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  padding-left: 45px;
+  outline: none;
+}
+.login-btn {
+  padding: 12px 30px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.navbar {
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 100;
+  position: sticky;
+  top: 0; 
+  width: 100%;
+}
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18px;
+  margin-right: 10px;
+  z-index: 102;
+}
+.menu-button span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+.main-content {
+  /* padding-top: 20px; */
+}
+
+.search-icon, .profile-icon {
+  display: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.search-icon svg, .profile-icon svg {
+  /* fill: white; */
+  stroke: white;
+}
+
+.slogan{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  background-image: url(images/Picsart_25-05-19_21-54-56-884.png);
+}
+.slogan img{  
+  padding: 50px;
+  height: 20em;
+}
+.slogan-imgg{
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+}
+
+.scroll-container {
+  font-family: 'Press Start 2P';
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  background-image: url(images/Picsart_25-05-19_21-54-56-884.png);
+  padding: 40px 40px;
+  gap: 10px;
+  margin-top: 20px;
+}
+.scroll-container h1{
+  color: white;
+  font-family: 'Press Start 2P';
+  text-align: center;
+  padding-bottom: 40px ;
+}
+
+.scroll-container h2{
+  font-family: 'Press Start 2P';
+}
+.scroll-container p{
+  font-family: 'IBM Plex Mono';
+}
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 10%;
+  min-height: 33.33vh;
+}
+
+.section-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.section-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.section-image img {
+  max-width: 100%;
+  height: 170px;
+  border-radius: 8px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+.section {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.section:hover::before {
+  transform: translateY(0);
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section:hover .section-image img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.section-image img {
+  transition: all 0.3s ease;
+}
+
+.pink-section {
+  background-color: rgba(255, 182, 193, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid rgba(255, 105, 180, 0.8);
+}
+
+.pink-section:hover {
+  background-color: rgba(255, 182, 193, 0.8);
+}
+
+.yellow-section {
+  background-color: rgba(248, 227, 163, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid rgba(255, 215, 0, 0.8);
+}
+
+.yellow-section:hover {
+  background-color: rgba(248, 227, 163, 0.8);
+}
+
+.purple-section {
+  background-color: rgba(217, 200, 248, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid rgba(147, 112, 219, 0.8);
+}
+
+.-section:hover {
+  background-color: rgba(217, 200, 248, 0.8);
+}
+
+.aqua-section {
+  background-color: rgba(200, 248, 244, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid rgba(64, 224, 208, 0.8);
+}
+
+.aqua-section:hover {
+  background-color: rgba(200, 248, 244, 0.8);
+}
+
+.blush-section {
+  background-color: rgba(248, 217, 217, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid rgba(255, 182, 193, 0.8);
+}
+
+.blush-section:hover {
+  background-color: rgba(248, 217, 217, 0.8);
+}
+
+
+.Why {
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  padding: 40px;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  height: 100vh;
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-image: url(images/Picsart_25-05-19_21-54-56-884.png);
+
+}
+
+.card {
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  font-family: 'Press Start 2P';
+  font-size: 34px;
+  /* font-weight: 600; */
+  color: #1a3b4b;
+  margin-bottom: 20px;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.card p {
+  font-family: 'IBM Plex Mono';
+  font-size: 22px;
+  color: #1a3b4b;
+  line-height: 1.6;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+}
+
+.card:hover h2 {
+  opacity: 0;
+}
+
+.card:hover p {
+  opacity: 1;
+}
+
+.Progress {
+  background-color: rgba(217, 200, 248, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.resources {
+  background-color: rgba(200, 248, 244, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.analytics {
+  background-color: rgba(255, 182, 193, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  grid-column: 2 /4;
+  grid-row: 2 / 3;
+}
+
+.image-card {
+  /* padding: 0; */
+  overflow: hidden;
+  z-index: 1;
+}
+
+.image-card img {
+  border-radius: 20px;
+  padding: 10px;
+  /* margin-bottom: 40px; */
+  /* padding-bottom: 40px; */
+  /* width: 100%;
+  height: 100%;
+  object-fit: cover; */
+}
+
+.Planning {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: rgba(248, 227, 163, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+.footer {
+  /* width: 80%; */
+
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  padding: 40px;
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-image: url(images/Picsart_25-05-19_21-54-56-884.png);
+}
+
+.vision {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: rgba(248, 227, 163, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+/* .vision p{
+  font-family: 'IBM Plex Mono';
+  font-size: 22px;
+  color: #1a3b4b;
+  line-height: 1.6;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+}
+
+.vision h2 {
+  font-family: 'Press Start 2P';
+  font-size: 34px;
+  font-weight: 600;
+  color: #1a3b4b;
+  margin-bottom: 20px;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.vision:hover h2 {
+  opacity: 0;
+}
+
+.vision:hover p {
+  opacity: 1;
+} */
+
+.custom-footer {
+  background-color: rgba(249, 247, 242, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-image: url(images/Picsart_25-05-19_21-54-56-884.png);
+  color: #ccc;
+  padding: 40px 60px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  border-top: 2px solid #1a1a1a;
+  position: relative;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  padding: 30px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  flex: 1 1 280px;
+  min-width: 250px;
+}
+
+.footer-col h2 {
+  font-family: "SofiaRoughBlackInline";
+  font-size: 44px;
+  background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.footer-col h3 {
+  font-family: "Press Start 2P" ;
+  font-size: 18px;
+  color: #1a3b4b;
+  margin-bottom: 10px;
+}
+
+.footer-col p, .footer-col a {
+  font-family: 'IBM Plex Mono';
+  font-size: 13px;
+  line-height: 1.6;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+  color: #1a3b4b;
+}
+
+.footer-col form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col input,
+.footer-col textarea {
+  padding: 10px;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  color: #eee;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.footer-col textarea {
+  height: 60px;
+  resize: none;
+}
+
+.footer-col button {
+  background-color: rgba(249, 247, 242, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #111;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.footer-col button:hover {
+  background-color: rgba(33, 71, 95, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .custom-footer {
+    padding: 30px 20px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .Why {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+      height: auto;
+  }
+  
+  .analytics, .resources, .Progress, .Planning, .presenter {
+      grid-column: 1;
+  }
+  
+  .Progress {
+      grid-row: 1;
+  }
+  
+  .Planning {
+      grid-row: 2;
+  }
+  
+  .resources {
+      grid-row: 3;
+  }
+  
+  .analytics {
+      grid-row: 4;
+  }
+  
+  .presenter {
+      grid-row: 5;
+  }
+  
+  .number {
+      font-size: 80px;
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .logo, .logo span {
+    font-size: 32px;
+  }
+  
+  .search-container {
+    max-width: 300px;
+  }
+  
+  .nav-links {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 5%;
+  }
+  
+  .section-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  h1{
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .header {
+    justify-content: flex-start;
+    padding: 15px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    order: 2;
+  }
+  
+  .menu-button {
+    display: flex;
+    order: 1;
+  }
+  
+  .logo, .logo span {
+    font-size: 28px;
+  }
+  
+  .search-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    padding: 10px 15px;
+    background-color: rgba(249, 247, 242, 0.9);
+    margin: 0;
+    z-index: 101;
+  }
+  
+  .search-container.active {
+    display: block;
+  }
+  
+  .search-icon {
+    display: block;
+    order: 3;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  
+  .login-btn {
+    display: none;
+  }
+  
+  .profile-icon {
+    display: block;
+    order: 4;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    width: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 101;
+  }
+  
+  .navbar.active {
+    left: 0;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-links a {
+    display: block;
+    font-size: 18px;
+  }
+  
+  .main-content {
+    padding-top: 0;
+  }
+  
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+  
+  .overlay.active {
+    display: block;
+  }
+  
+  /* Hamburger menu animation */
+  .menu-button.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-button.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-button.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .slogan img {
+    padding: 25px;
+    height: 12em;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+  
+  .logo, .logo span {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .section {
+    padding: 2rem 5%;
+  }
+  
+  .scroll-container {
+    padding: 20px;
+  }
+  .section-content{
+    padding: 20px;
+  }
+  .slogan img {
+    padding: 15px;
+    height: 8em;
+  }
+}

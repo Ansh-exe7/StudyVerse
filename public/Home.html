@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyVerse</title>
+    <link rel="stylesheet" href="stylehome.css">
+    <link href="https://fonts.cdnfonts.com/css/against-2" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="warpCanvas"></canvas>
+
+    <div class="main-content">
+        <div class="header">
+            <button class="menu-button" aria-label="Menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="Home.html">Study<span>Verse</span></a>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search any grade">
+            </div>
+
+            <div class="search-icon" onclick="toggleSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+
+            <a href="Login.html" class="login-btn">Login</a>
+
+            <div class="profile-icon" onclick="toggleProfile()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Grades</a></li>
+                <li><a href="#">PYQ's</a></li>
+                <li><a href="#">Roadmaps</a></li>
+                <li><a href="#">TimeTable</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+        <div class="slogan">
+            <img src="images/erasebg-transformed.png" alt="photu" class="slogan-imgg">
+        </div>
+
+        <div class="scroll-container">
+            <h1>Features</h1>
+            <section class="section pink-section">
+                <div class="section-content">
+                    <h2>Syllabus Tracker</h2>
+                    <p>High-quality, targeted e-learning courses designed specifically to meet the needs of technical
+                        fields, providing practical skills you can apply immediately.</p>
+                </div>
+                <div class="section-image">
+                    <img src="images/syllabus.png" alt="Syllabus visualization">
+                </div>
+            </section>
+
+            <section class="section yellow-section">
+                <div class="section-content">
+                    <h2>PYQ's Access</h2>
+                    <p>Expert-crafted e-learnings, created and managed by us, so you can focus on what matters most.</p>
+                </div>
+                <div class="section-image">
+                    <img src="images/ChatGPT Image May 20, 2025, 04_46_02 PM.png" alt="PYQ visualization">
+                </div>
+            </section>
+
+            <section class="section purple-section">
+                <div class="section-content">
+                    <h2>Roadmaps</h2>
+                    <p>Access a wide range of courses anytime, anywhere, allowing you to learn on your schedule, whether
+                        you're at home, on the job, or on the go.</p>
+                </div>
+                <div class="section-image">
+                    <img src="images/roadmaps.png" alt="Roadmaps visualization">
+                </div>
+            </section>
+
+            <section class="section aqua-section">
+                <div class="section-content">
+                    <h2>Custom TimeTable</h2>
+                    <p>Access a wide range of courses anytime, anywhere, allowing you to learn on your schedule, whether
+                        you're at home, on the job, or on the go.</p>
+                </div>
+                <div class="section-image">
+                    <img src="images/Timetable.png" alt="TimeTable visualization">
+                </div>
+            </section>
+
+            <section class="section blush-section">
+                <div class="section-content">
+                    <h2>Focus Timer & Clock</h2>
+                    <p>Access a wide range of courses anytime, anywhere, allowing you to learn on your schedule, whether
+                        you're at home, on the job, or on the go.</p>
+                </div>
+                <div class="section-image">
+                    <img src="images/Timer.png" alt="Timer visualization">
+                </div>
+            </section>
+
+        </div>
+
+        <div class="Why">
+            <div class="card image-card Progress">
+                <h2>Visual progress tracking</h2>
+
+                <img src="images/visual progress.png" alt="">
+                <p>Graphs and checklists show how far you’ve come and what’s left to conquer.</p>
+            </div>
+
+            <div class="card image-card Planning">
+                <h2>Centralized Study Planning</h2>
+                <img src="images/Planning.png" alt="">
+                <p>Everything in one place — no need to juggle between notes, planners, and apps.</p>
+            </div>
+
+            <div class="card image-card resources">
+                <h2>Resources Access</h2>
+                <img src="images/Resources.png" alt="">
+                <p>Quick access to previous year papers, mind maps, and curated study material.</p>
+            </div>
+
+            <div class="card image-card analytics">
+                <h2>Study Analytics</h2>
+                <img src="images/Analytics.png" alt="">
+                <p>Weekly reports showing time spent, subjects covered, weak areas, etc.</p>
+            </div>
+
+        </div>
+
+        <footer class="custom-footer">
+            <div class="footer-grid">
+             
+              <div class="footer-col">
+                <h2>STUDYVERSE</h2>
+                <p>Your all-in-one exam preparation partner —<br>track, plan, focus, and succeed.</p>
+                <p>Email: <a href="mailto:studyverse@support.com">studyverse@support.com</a></p>
+                <p>&copy; 2025 StudyVerse. All rights reserved.</p>
+              </div>
+          
+              <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="#">Dashboard</a></li>
+                  <li><a href="#">PYQs</a></li>
+                  <li><a href="#">Mindmaps</a></li>
+                  <li><a href="#">Timetable</a></li>
+                  <li><a href="#">Notifications</a></li>
+                  <li><a href="#">Profile</a></li>
+                </ul>
+              </div>
+          
+              <div class="footer-col">
+                <h3>Contact Us</h3>
+                <form id="contact-form">
+                  <input type="text" placeholder="Your Name" required />
+                  <input type="email" placeholder="Your Email" required />
+                  <textarea placeholder="Your Message" required></textarea>
+                  <button type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+          </footer>
+          
+          
+          
+          
+          
+
+        <script src="script.js"></script>
+</body>
+
+</html>
