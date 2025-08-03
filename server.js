@@ -4,7 +4,7 @@ const path = require('path');
 const authRoutes = require('./routes/auth');
 require('dotenv').config();
 
-const app = express(); // ✅ This must come first
+const app = express(); 
 const PORT = 3000;
 
 // Middleware
@@ -18,7 +18,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// ✅ Serve static files
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
